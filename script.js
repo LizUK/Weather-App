@@ -1,3 +1,8 @@
+URL::forceRootUrl(Config::get('app.url'));
+    if (str_contains(Config::get('app.url'), 'https://')) {
+        URL::forceScheme('https');
+    }
+
 const 
     search = document.getElementById("keyword"),
     submitBtn = document.getElementById("submit-button"),
