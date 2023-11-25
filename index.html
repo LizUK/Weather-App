@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,700;1,400&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+
+    <title>My Weather Pal</title>
+</head>
+<body>
+
+    <div id="wrapper">
+
+        <header>
+
+            <div id="logo"><img src="images/myweatherapp.png" alt="My Weather App"> 
+            <h2>My Weather App</h2></div>
+            <div id="search">
+                <form>
+                    <input type="text" id="keyword" name="search-term" placeholder="City name">
+                    <input type="submit" id="submit-button" value=">>">
+                </form>
+            </div>
+        </header>
+
+        <section id="content">
+            <div id="content-header">
+                <div>
+                    <h1>The weather in <span id="city">{Search for your city}</span> today!</h1>
+                    <p id="date"></p><p id="time"></p>
+                </div>
+                <div id="weather">
+                    <div><img src=""></div>
+                    <h1></h1>
+                </div>
+            </div>
+            
+
+            <div id="weather-report">
+                <div id="temperature">0&deg;C</div>
+                <div id="feels-like">Feels like: 0&deg;C</div>
+                <div id="humidity"><span>0%</span><br>
+                Humidity</div>
+                <div id="precipation"><span>0 inches</span><br>
+                Precipation</div>
+                <div id="wind-speed"><span>0 mph</span><br>
+                Wind Speed</div>
+
+
+            </div>
+
+        </section>
+
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
