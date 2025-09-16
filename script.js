@@ -33,9 +33,12 @@ function getTime() {
 setInterval(getTime, 1000);
 
 async function getWeather(e) {
+
+    e.preventDefault();
+    
     const keyword = document.querySelector("#keyword").value;
     const apiKey = "0ee82ee6fda955a1527443dccdcd8c59";
-    e.preventDefault();
+    
     console.log(keyword);
     //const response = await fetch(`http://api.weatherapi.com/v1/current.json?key=179428b368194d318d421509232011&q=${keyword}`, {mode: 'cors'});
     //const response = await fetch(`http://api.openweathermap.org/data/2.5/forecast?id=524901&appid={0ee82ee6fda955a1527443dccdcd8c59}&q=${keyword}`, {mode: 'cors'});
@@ -43,25 +46,35 @@ async function getWeather(e) {
     const weatherData = await response.json();
     console.log(weatherData);
 
-    const city = keyword.charAt(0).toUpperCase() + keyword.slice(1);
-    const country = weatherData.location.country;
+    //const city = keyword.charAt(0).toUpperCase() + keyword.slice(1);
+    //const country = weatherData.location.country;
 
-    cityName.innerHTML = city + ", <span>" + country + "</span>";
+    cityName.innerHTML = `${weatherData.name}, <span>${weatherData.sys.country}</span>`;
 
-    showWeather.innerText = weatherData.current.condition.text;
-    weatherImg.src = weatherData.current.condition.icon;
+    // weather description + icon
+    showWeather.innerText = weatherData.weather[0].description;
+    weatherImg.src = `https://openweathermap.org/img/wn/${weatherData.weather[0].icon}@2x.png`;
 
-    temperature.innerHTML = weatherData.current.temp_c + "&deg;C";
-    feelsLike.innerHTML = "Feels like: " + weatherData.current.feelslike_c + "&deg;C";
+    // temperature values
+    temperature.innerHTML = `${weatherData.main.temp}&deg;C`;
+    feelsLike.innerHTML = `Feels like: ${weatherData.main.feels_like}&deg;C`;
+
+    // humidity + wind
+    humidity.innerHTML = `${weatherData.main.humidity}&#37;`;
+    windSpeed.innerText = `${weatherData.wind.speed} m/s`;
+
+    if (weatherData.rain && weatherData.rain["1h"]) {
+        precipation.innerHTML = `${weatherData.rain["1h"]} mm (last hour)`;
+    } else {
+        precipation.innerHTML = "0 mm";
+    }
   
     weatherPic.appendChild(weatherImg);
 
-    humidity.innerHTML = weatherData.current.humidity + "&#37; ";
-    precipation.innerHTML = weatherData.current.precip_in + " inches";
-    windSpeed.innerText = weatherData.current.wind_mph    + " mph";
 };
 
 submitBtn.addEventListener("click", getWeather);
+
 
 
 
