@@ -36,7 +36,7 @@ async function getWeather(e) {
     const apiKey = "0ee82ee6fda955a1527443dccdcd8c59";
     
     console.log(keyword);
-    const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${keyword}&appid=${apiKey}&units=metric``),  { mode: 'cors' });
+    const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${keyword}&appid=${apiKey}&units=metric`),  { mode: 'cors' });
     const weatherData = await response.json();
     console.log(weatherData);
 
@@ -72,7 +72,8 @@ form.addEventListener("submit", (e) => {
     getWeather(e);
 });
 
-console.log("CHANGED");
+console.log("CHANGED2");
+
 
 
 
