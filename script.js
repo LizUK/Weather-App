@@ -76,18 +76,3 @@ form.addEventListener("submit", (e) => {
     getWeather(e);
 });
 
-console.log("CHANGED3");
-
-
-
-
-
-
-
-
-
-
-
-
-
-
