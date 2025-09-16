@@ -11,7 +11,7 @@ const
     temperature = document.querySelector("#temperature"),
     feelsLike = document.querySelector("#feels-like"),
     humidity = document.querySelector("#humidity span"),
-    precipation = document.querySelector("#precipation span"),
+    precipitation = document.querySelector("#precipitation span"),
     windSpeed = document.querySelector("#wind-speed span");
 
 function getTime() {
@@ -57,10 +57,14 @@ async function getWeather(e) {
     humidity.innerHTML = `${weatherData.main.humidity}&#37;`;
     windSpeed.innerText = `${weatherData.wind.speed} m/s`;
 
-    if (weatherData.rain && weatherData.rain["1h"]) {
-        precipation.innerHTML = `${weatherData.rain["1h"]} mm (last hour)`;
-    } else {
-        precipation.innerHTML = "0 mm";
+    // --- precipitation (rain/snow if available) ---
+        let precipitation = "0 mm";
+        if (weatherData.rain && weatherData.rain["1h"]) {
+            precipitation = `${weatherData.rain["1h"]} mm (last 1h)`;
+        } else if (weatherData.snow && weatherData.snow["1h"]) {
+            precipitation = `${weatherData.snow["1h"]} mm (last 1h)`;
+        }
+        precipation.innerHTML = precipitation;
     }
   
     weatherPic.appendChild(weatherImg);
@@ -73,6 +77,7 @@ form.addEventListener("submit", (e) => {
 });
 
 console.log("CHANGED2");
+
 
 
 
