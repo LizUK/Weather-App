@@ -22,6 +22,7 @@ ol {
 #wrapper {
     background-image: url(images/background.jpg);
     background-size: 100% 100%;
+    height: -webkit-fill-available;
     padding: 50px;
 }
 
@@ -127,3 +128,4 @@ header {
 #wind-speed span {
     font-size: 30px;
 }
+
