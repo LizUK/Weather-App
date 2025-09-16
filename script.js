@@ -6,6 +6,7 @@ URL::forceRootUrl(Config::get('app.url'));
 const 
     search = document.getElementById("keyword"),
     submitBtn = document.getElementById("submit-button"),
+    form = document.querySelector("#search form"),
     cityName = document.getElementById("city"),
     showDate = document.getElementById("date"),
     showTime = document.getElementById("time"),
@@ -73,7 +74,11 @@ async function getWeather(e) {
 
 };
 
-submitBtn.addEventListener("click", getWeather);
+form.addEventListener("submit", (e) => {
+    e.preventDefault();
+    getWeather(e);
+});
+
 
 
 
