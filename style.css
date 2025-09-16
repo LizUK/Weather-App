@@ -119,13 +119,14 @@ header {
 }
 
 #humidity,
-#precipation {
+#precipitation {
     margin-bottom: 10px;
 }
 
 #humidity span,
-#precipation span,
+#precipitation span,
 #wind-speed span {
     font-size: 30px;
 }
+
 
