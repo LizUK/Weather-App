@@ -58,14 +58,14 @@ async function getWeather(e) {
     windSpeed.innerText = `${weatherData.wind.speed} m/s`;
 
     // --- precipitation (rain/snow if available) ---
-        let precipitation = "0 mm";
+        let precipValue = "0 mm";
         if (weatherData.rain && weatherData.rain["1h"]) {
-            precipitation = `${weatherData.rain["1h"]} mm (last 1h)`;
+            precipValue = `${weatherData.rain["1h"]} mm (last 1h)`;
         } else if (weatherData.snow && weatherData.snow["1h"]) {
-            precipitation = `${weatherData.snow["1h"]} mm (last 1h)`;
+            precipValue = `${weatherData.snow["1h"]} mm (last 1h)`;
         }
-        precipation.innerHTML = precipitation;
-    }
+        precipitation.innerHTML = precipValue;
+    
   
     weatherPic.appendChild(weatherImg);
 
@@ -76,7 +76,8 @@ form.addEventListener("submit", (e) => {
     getWeather(e);
 });
 
-console.log("CHANGED2");
+console.log("CHANGED3");
+
 
 
 
