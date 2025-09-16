@@ -37,7 +37,8 @@ async function getWeather(e) {
     e.preventDefault();
     console.log(keyword);
     //const response = await fetch(`http://api.weatherapi.com/v1/current.json?key=179428b368194d318d421509232011&q=${keyword}`, {mode: 'cors'});
-    const response = await fetch(`http://api.openweathermap.org/data/2.5/forecast?id=524901&appid={0ee82ee6fda955a1527443dccdcd8c59}&q=${keyword}`, {mode: 'cors'});
+    //const response = await fetch(`http://api.openweathermap.org/data/2.5/forecast?id=524901&appid={0ee82ee6fda955a1527443dccdcd8c59}&q=${keyword}`, {mode: 'cors'});
+    const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q={keyword}&appid={0ee82ee6fda955a1527443dccdcd8c59}`, {mode: 'cors'});
     const weatherData = await response.json();
     console.log(weatherData);
 
@@ -60,5 +61,6 @@ async function getWeather(e) {
 };
 
 submitBtn.addEventListener("click", getWeather);
+
 
 
